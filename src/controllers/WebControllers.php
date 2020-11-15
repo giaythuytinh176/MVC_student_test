@@ -45,6 +45,11 @@ class WebControllers
         }
     }
 
+    public function addStudent($params)
+    {
+        echo 1111;
+    }
+
     public function errorPage($head = "")
     {
         $this->view("404", ["", "", $head]);

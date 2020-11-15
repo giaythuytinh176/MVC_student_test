@@ -79,6 +79,9 @@ class UrlControllers
                 case "delete":
                     $this->webcontrollers->deleteStudent($this->params);
                     break;
+                case "add":
+                    $this->webcontrollers->addStudent($this->params);
+                    break;
             }
         }
     }

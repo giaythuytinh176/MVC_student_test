@@ -24,6 +24,7 @@ include_once "menu.php";
 ?>
 <br>
 <h3>List Student</h3>
+<a href="liststudent/add">Add Student</a>
 
 <?php
 
