@@ -25,6 +25,21 @@ class StudentModels
         }
     }
 
+    public function getInfo($studentid)
+    {
+        $sql = "SELECT * FROM Student WHERE StudentID=:StudentID";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(["StudentID" => $studentid]);
+        $data = $stmt->fetch($this->db::FETCH_ASSOC);
+        //$student = new Student($data);
+        //print("<pre>" . print_r($student, true) . "</pre>");die();
+        if (empty($data)) {
+            return "Not found Student.";
+        } else {
+            return $data;
+        }
+    }
+
     public function editModels($params)
     {
         if (!empty($params)) {

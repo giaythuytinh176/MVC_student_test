@@ -45,9 +45,9 @@ class WebControllers
         }
     }
 
-    public function errorPage()
+    public function errorPage($head = "")
     {
-        $this->view("404");
+        $this->view("404", [], [], $head);
     }
 
     public function view($v, $data = [], $params = [], $head = "")

@@ -27,11 +27,11 @@ include_once "menu.php";
 
 <br>
 <div class="alert alert-danger" align="center" role="alert">
-    404 Page Not Found
+    <?php echo $head ? $head : "404 Page Not Found"; ?>
 </div>
 <?php
 
-header("refresh:1;url=" . UrlControllers::url("homepage"));
+header("refresh:3;url=" . UrlControllers::url("homepage"));
 
 ?>
 

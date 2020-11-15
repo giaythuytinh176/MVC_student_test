@@ -8,10 +8,12 @@ class UrlControllers
     protected $action = "index";
     protected $params = [];
     private $webcontrollers;
+    private $apicontrollers;
 
     public function index()
     {
         $this->webcontrollers = new WebControllers();
+        $this->apicontrollers = new \MVC\controllers\APIControllers();
         $parseurl = $this->parseURL();
 
         if (!empty($parseurl[0])) {
@@ -43,7 +45,13 @@ class UrlControllers
                     $this->webcontrollers->getAllStudent();
                 }
                 break;
-
+            case "api":
+                if (!empty($this->action)) {
+                    $this->apicontrollers->api($this->action, $this->params);
+                } else {
+                    $this->webcontrollers->errorPage("Api not found or invalid.");
+                }
+                break;
 
             case "homepage":
                 $this->webcontrollers->homepage();

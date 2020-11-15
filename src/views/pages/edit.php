@@ -54,12 +54,19 @@ if (!empty($params)) {
                 foreach ($data as $key => $val) {
                     if ($key == "StudentID") {
                         echo "<td><input type=\"text\" name=\"" . $key . "\" class=\"form-control\" value=\"" . $val . "\" readonly></td>";
+                    } elseif ($key == "Gender") {
+                        echo "<td>
+                            <select name='" . $key . "'>
+                            <option value='Male'>Male</option>
+                            <option value='Female'>Female</option>
+                            </select>
+                        </td>";
+                        //<input type=\"text\" name=\"" . $key . "\" class=\"form-control\" value=\"" . $val . "\" >
                     } else echo "<td><input type=\"text\" name=\"" . $key . "\" class=\"form-control\" value=\"" . $val . "\"></td>";
                 }
                 //echo '<td><button type="button" class="btn btn-primary">Submit</button></td>';
                 //echo '<td><input type="submit" name="btn" class="btn btn-primary" value="Submit">&nbsp;<a href="javascript:history.go(-1)" class="btn btn-warning">Cancel</a></td>';
                 echo "</tr>";
-
                 ?>
                 </tbody>
             </table>
@@ -83,23 +90,23 @@ if (!empty($params)) {
     }
 
 } else {
-    ?>
-    <br>
-    <div class="alert alert-danger" align="center" role="alert">
-        <?= $data ?>
-    </div>
+?>
+<br>
+<div class="alert alert-danger" align="center" role="alert">
+    <?= $data ?>
+</div>
 <div align="center"><a href="javascript:history.go(-1)" class="btn btn-warning">Back</a>
     <?php
-}
+    }
 
-?>
+    ?>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+            crossorigin="anonymous"></script>
 
 </body>
 </html>

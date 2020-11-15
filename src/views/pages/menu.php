@@ -3,6 +3,7 @@
 use MVC\controllers\UrlControllers;
 
 ?>
+<br>
 <!-- A horizontal navbar that becomes vertical on small screens -->
 <nav class="navbar navbar-expand-sm bg-dark">
     <!-- Links -->
