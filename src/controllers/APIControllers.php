@@ -16,9 +16,14 @@ class APIControllers extends StudentModels
                 break;
 
             case "getinfo":
-                if (!empty($params)) {
+                if (!empty($params[0])) {
                     $data = $this->getInfo($params[0]);
                     if (!is_array($data)) $data = ["error" => $data];
+                    header("Content-type: application/json; charset=utf-8");
+                    echo json_encode($data, JSON_PRETTY_PRINT);
+                    break;
+                } else {
+                    $data = ["error" => "Invalid method {$action} or invalid request."];
                     header("Content-type: application/json; charset=utf-8");
                     echo json_encode($data, JSON_PRETTY_PRINT);
                     break;

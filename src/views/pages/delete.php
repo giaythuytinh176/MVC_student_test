@@ -20,7 +20,7 @@
 
 include_once "menu.php";
 
-if (!empty($params)) {
+if (!empty($data[1])) {
 
     ?>
 
@@ -41,7 +41,7 @@ if (!empty($params)) {
     ?>
     <br>
     <div class="alert alert-danger" align="center" role="alert">
-        <?= $params ?>
+        <?= $data[1] ?>
     </div>
     <?php
 }

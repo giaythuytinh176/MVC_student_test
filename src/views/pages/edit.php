@@ -20,7 +20,7 @@
 
 include_once "menu.php";
 
-if (!empty($params)) {
+if (!empty($data[1])) {
 
     ?>
 
@@ -37,7 +37,7 @@ if (!empty($params)) {
                 <tr>
                     <?php
 
-                    $keyList = array_keys($data);
+                    $keyList = array_keys($data[0]);
                     foreach ($keyList as $value) {
                         ?>
                         <th scope="col"><?= $value; ?></th>
@@ -51,14 +51,14 @@ if (!empty($params)) {
                 <?php
 
                 echo "<tr>";
-                foreach ($data as $key => $val) {
+                foreach ($data[0] as $key => $val) {
                     if ($key == "StudentID") {
                         echo "<td><input type=\"text\" name=\"" . $key . "\" class=\"form-control\" value=\"" . $val . "\" readonly></td>";
                     } elseif ($key == "Gender") {
                         echo "<td>
                             <select name='" . $key . "'>
-                            <option value='Male'>Male</option>
-                            <option value='Female'>Female</option>
+                            <option value='Male' " . (($val == 'Male') ? 'selected' : '') . ">Male</option>
+                            <option value='Female' " . (($val == 'Female') ? 'selected' : '') . ">Female</option>
                             </select>
                         </td>";
                         //<input type=\"text\" name=\"" . $key . "\" class=\"form-control\" value=\"" . $val . "\" >
@@ -82,7 +82,7 @@ if (!empty($params)) {
         ?>
         <br>
         <div class="alert alert-danger" align="center" role="alert">
-            <?= $data ?><br>
+            <?= $data[0] ?><br>
         </div>
         <div align="center"><a href="javascript:history.go(-1)" class="btn btn-warning">Back</a>
         </div>

@@ -52,7 +52,7 @@ if (is_array($data)) {
         <tbody>
         <?php
 
-        foreach ($data as $key => $val) {
+        foreach ($data[0] as $key => $val) {
             echo "<tr>";
             echo "<th scope=\"row\">" . ($key + 1) . "</th>";
             foreach ($val as $v) {

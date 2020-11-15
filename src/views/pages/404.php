@@ -27,7 +27,7 @@ include_once "menu.php";
 
 <br>
 <div class="alert alert-danger" align="center" role="alert">
-    <?php echo $head ? $head : "404 Page Not Found"; ?>
+    <?php echo $data[2] ? $data[2] : "404 Page Not Found"; ?>
 </div>
 <?php
 

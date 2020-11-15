@@ -21,17 +21,17 @@ class WebControllers
     public function getAllStudent()
     {
         $studentlist = $this->studentmodels->getListStudent();
-        $this->view("ListStudent", $studentlist);
+        $this->view("ListStudent", [$studentlist]);
     }
 
     public function editStudent($params)
     {
         if (!empty($_POST['btn'])) {
             $editmodels = $this->studentmodels->updateModels($params);
-            $this->view("Student", $editmodels, $params, "Updated");
+            $this->view("Student", [$editmodels, $params, "Updated"]);
         } else {
             $editmodels = $this->studentmodels->editModels($params);
-            $this->view("edit", $editmodels, $params);
+            $this->view("edit", [$editmodels, $params]);
         }
     }
 
@@ -39,18 +39,18 @@ class WebControllers
     {
         if (!empty($_POST['btn'])) {
             $delmodels = $this->studentmodels->deleteModels($params);
-            $this->view("Student", $delmodels, $params, "Deleted");
+            $this->view("Student", [$delmodels, $params, "Deleted"]);
         } else {
-            $this->view("delete", [], $params);
+            $this->view("delete", ["", $params]);
         }
     }
 
     public function errorPage($head = "")
     {
-        $this->view("404", [], [], $head);
+        $this->view("404", ["", "", $head]);
     }
 
-    public function view($v, $data = [], $params = [], $head = "")
+    public function view($v, $data = [])
     {
         require_once "./src/views/pages/$v.php";
     }
