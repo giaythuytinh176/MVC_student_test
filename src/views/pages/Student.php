@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Homepage</title>
+    <title><?= $head ?> Student</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <style>
@@ -26,12 +26,12 @@ include_once "menu.php";
 ?>
 
 <br>
-<div class="alert alert-danger" align="center" role="alert">
-    404 Page Not Found
+<div class="alert alert-primary" align="center" role="alert">
+    <?= $data ?>
 </div>
 <?php
 
-header("refresh:1;url=" . UrlControllers::url("homepage"));
+header("refresh:1;url=" . UrlControllers::url("liststudent"));
 
 ?>
 

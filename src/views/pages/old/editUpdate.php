@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Delete Student</title>
+    <title>Updated data ...</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <style>
@@ -15,10 +15,11 @@
 
 </head>
 
-
 <body>
 
 <?php
+
+use MVC\controllers\UrlControllers;
 
 include_once "menu.php";
 
@@ -26,11 +27,11 @@ include_once "menu.php";
 
 <br>
 <div class="alert alert-success" align="center" role="alert">
-    <?= $delmodels ?>
+    Updated successfully
 </div>
 <?php
 
-header("refresh:1;url=?url=");
+header("refresh:1;url=" . UrlControllers::url("liststudent"));
 
 ?>
 

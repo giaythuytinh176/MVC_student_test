@@ -49,6 +49,7 @@ class StudentModels
         $sql = "UPDATE Student SET FirstName=:FirstName, LastName=:LastName, Birthday=:Birthday, Gender=:Gender, Address=:Address, Birthplace=:Birthplace, FacID=:FacID WHERE StudentID=:StudentID";
         $stmt = $this->db->prepare($sql);
         $stmt->execute($_POST);
+        return "Updated successfully";
     }
 
     public function deleteModels($params)

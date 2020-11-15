@@ -9,7 +9,7 @@ class UrlControllers
     protected $params = [];
     private $webcontrollers;
 
-    public function __construct()
+    public function index()
     {
         $this->webcontrollers = new WebControllers();
         $parseurl = $this->parseURL();
@@ -21,9 +21,14 @@ class UrlControllers
             $this->action = $parseurl[1];
         }
         if (!empty($parseurl[0]) && !empty($parseurl[1]) && !empty($parseurl[2])) {
-            for ($i = 2; $i < count($parseurl); $i++) {
-                $this->params[] = $parseurl[$i];
-            }
+//            for ($i = 2; $i < count($parseurl); $i++) {
+//                $this->params[] = $parseurl[$i];
+//            }
+            // use 1 trong 2 cach deu duoc
+            unset($parseurl[0]);
+            unset($parseurl[1]);
+            $this->params = array_values($parseurl);
+            //ToolControllers::PrettyShow($this->params);
         }
         $this->parseController();
     }
@@ -58,13 +63,25 @@ class UrlControllers
 
     public function parseAction()
     {
-        switch ($this->action) {
-            case "edit":
-                $this->webcontrollers->editStudent($this->params);
-                break;
-            case "delete":
-                $this->webcontrollers->deleteStudent($this->params);
-                break;
+        if ($this->controllers == "liststudent") {
+            switch ($this->action) {
+                case "edit":
+                    $this->webcontrollers->editStudent($this->params);
+                    break;
+                case "delete":
+                    $this->webcontrollers->deleteStudent($this->params);
+                    break;
+            }
         }
     }
+
+    public static function url($q = "homepage", $p = "MVC_student_test")
+    {
+        return sprintf(
+            "%s://%s/%s/%s",
+            isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off' ? 'https' : 'http',
+            $_SERVER['SERVER_NAME'], $p, $q
+        );
+    }
+
 }

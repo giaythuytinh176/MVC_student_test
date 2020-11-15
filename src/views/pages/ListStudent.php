@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Student List</title>
+    <title>List Student</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
           integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <style>
@@ -27,7 +27,7 @@ include_once "menu.php";
 
 <?php
 
-if (is_array($studentlist)) {
+if (is_array($data)) {
 
     ?>
 
@@ -38,7 +38,7 @@ if (is_array($studentlist)) {
 
             <?php
 
-            $keyList = array_keys($studentlist[0]);
+            $keyList = array_keys($data[0]);
             foreach ($keyList as $value) {
                 ?>
                 <th scope="col"><?= $value; ?></th>
@@ -52,7 +52,7 @@ if (is_array($studentlist)) {
         <tbody>
         <?php
 
-        foreach ($studentlist as $key => $val) {
+        foreach ($data as $key => $val) {
             echo "<tr>";
             echo "<th scope=\"row\">" . ($key + 1) . "</th>";
             foreach ($val as $v) {
@@ -73,7 +73,7 @@ if (is_array($studentlist)) {
 
     <br>
     <div class="alert alert-primary" align="center" role="alert">
-        <?= $studentlist ?>
+        <?= $data ?>
     </div>
 
     <?php

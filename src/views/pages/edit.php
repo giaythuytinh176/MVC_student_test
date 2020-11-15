@@ -28,7 +28,7 @@ if (!empty($params)) {
     <h3>Edit Student</h3>
 
     <?php
-    if (is_array($editmodels)) {
+    if (is_array($data)) {
         ?>
 
         <form method="post">
@@ -37,7 +37,7 @@ if (!empty($params)) {
                 <tr>
                     <?php
 
-                    $keyList = array_keys($editmodels);
+                    $keyList = array_keys($data);
                     foreach ($keyList as $value) {
                         ?>
                         <th scope="col"><?= $value; ?></th>
@@ -51,7 +51,7 @@ if (!empty($params)) {
                 <?php
 
                 echo "<tr>";
-                foreach ($editmodels as $key => $val) {
+                foreach ($data as $key => $val) {
                     if ($key == "StudentID") {
                         echo "<td><input type=\"text\" name=\"" . $key . "\" class=\"form-control\" value=\"" . $val . "\" readonly></td>";
                     } else echo "<td><input type=\"text\" name=\"" . $key . "\" class=\"form-control\" value=\"" . $val . "\"></td>";
@@ -75,7 +75,7 @@ if (!empty($params)) {
         ?>
         <br>
         <div class="alert alert-danger" align="center" role="alert">
-            <?= $editmodels ?><br>
+            <?= $data ?><br>
         </div>
         <div align="center"><a href="javascript:history.go(-1)" class="btn btn-warning">Back</a>
         </div>
@@ -86,8 +86,9 @@ if (!empty($params)) {
     ?>
     <br>
     <div class="alert alert-danger" align="center" role="alert">
-        <?= $editmodels ?>
+        <?= $data ?>
     </div>
+<div align="center"><a href="javascript:history.go(-1)" class="btn btn-warning">Back</a>
     <?php
 }
 

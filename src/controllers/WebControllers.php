@@ -15,23 +15,23 @@ class WebControllers
 
     public function homepage()
     {
-        include_once "./src/views/pages/homepage.php";
+        $this->view("homepage");
     }
 
     public function getAllStudent()
     {
         $studentlist = $this->studentmodels->getListStudent();
-        include_once "./src/views/pages/ListStudent.php";
+        $this->view("ListStudent", $studentlist);
     }
 
     public function editStudent($params)
     {
         if (!empty($_POST['btn'])) {
-            $this->studentmodels->updateModels($params);
-            include_once "./src/views/pages/editUpdate.php";
+            $editmodels = $this->studentmodels->updateModels($params);
+            $this->view("Student", $editmodels, $params, "Updated");
         } else {
             $editmodels = $this->studentmodels->editModels($params);
-            include_once "./src/views/pages/edit.php";
+            $this->view("edit", $editmodels, $params);
         }
     }
 
@@ -39,14 +39,19 @@ class WebControllers
     {
         if (!empty($_POST['btn'])) {
             $delmodels = $this->studentmodels->deleteModels($params);
-            include_once "./src/views/pages/deleteUpdate.php";
+            $this->view("Student", $delmodels, $params, "Deleted");
         } else {
-            include_once "./src/views/pages/delete.php";
+            $this->view("delete", [], $params);
         }
     }
 
     public function errorPage()
     {
-        include_once "./src/views/pages/404.php";
+        $this->view("404");
+    }
+
+    public function view($v, $data = [], $params = [], $head = "")
+    {
+        require_once "./src/views/pages/$v.php";
     }
 }
