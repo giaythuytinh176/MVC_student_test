@@ -98,7 +98,6 @@ if (!empty($params)) {
 <div align="center"><a href="javascript:history.go(-1)" class="btn btn-warning">Back</a>
     <?php
     }
-
     ?>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

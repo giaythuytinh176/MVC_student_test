@@ -41,7 +41,7 @@ if (!empty($params)) {
     ?>
     <br>
     <div class="alert alert-danger" align="center" role="alert">
-        <?= $delSTD ?>
+        <?= $params ?>
     </div>
     <?php
 }
@@ -56,4 +56,4 @@ if (!empty($params)) {
         crossorigin="anonymous"></script>
 
 </body>
-</html><?php
+</html>
