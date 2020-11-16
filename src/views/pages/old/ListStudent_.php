@@ -39,7 +39,7 @@ if (is_array($data[0])) {
 
             <?php
 
-            $keyList = ["StudentID", "FirstName", "LastName", "Birthday", "Gender", "Address", "Birthplace", "FacID"];
+            $keyList = array_keys($data[0][0]);
             foreach ($keyList as $value) {
                 ?>
                 <th scope="col"><?= $value; ?></th>
@@ -56,15 +56,10 @@ if (is_array($data[0])) {
         foreach ($data[0] as $key => $val) {
             echo "<tr>";
             echo "<th scope=\"row\">" . ($key + 1) . "</th>";
-            echo "<td>" . $val->getStudentID() . "</td>";
-            echo "<td>" . $val->getFirstName() . "</td>";
-            echo "<td>" . $val->getLastName() . "</td>";
-            echo "<td>" . $val->getBirthday() . "</td>";
-            echo "<td>" . $val->getGender() . "</td>";
-            echo "<td>" . $val->getAddress() . "</td>";
-            echo "<td>" . $val->getBirthplace() . "</td>";
-            echo "<td>" . $val->getFacID() . "</td>";
-            echo "<td><a href='liststudent/edit/" .  $val->getStudentID() . "'><button type=\"button\" class=\"btn btn-success\">Edit</button></a> &nbsp; <a href='liststudent/delete/" .  $val->getStudentID() . "'><button type=\"button\" class=\"btn btn-danger\">Delete</button></td>";
+            foreach ($val as $v) {
+                echo "<td>" . $v . "</td>";
+            }
+            echo "<td><a href='liststudent/edit/" . $val['StudentID'] . "'><button type=\"button\" class=\"btn btn-success\">Edit</button></a> &nbsp; <a href='liststudent/delete/" . $val['StudentID'] . "'><button type=\"button\" class=\"btn btn-danger\">Delete</button></td>";
             echo "</tr>";
         }
         ?>

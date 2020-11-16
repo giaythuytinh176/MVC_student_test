@@ -15,6 +15,31 @@
 
 </head>
 
+<tr>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+</tr>
+<tr>
+    <td></td>
+</tr>
+
 <body>
 <?php
 
@@ -28,30 +53,22 @@ if (!empty($data[1])) {
     <h3>Edit Student</h3>
 
     <?php
-    if (is_array($data)) {
+    if (is_array($data[0])) {
         ?>
 
         <form method="post">
             <table class="table table-bordered">
                 <thead class="black white-text">
-                <tr>
-                    <?php
-
-                    $keyList = array_keys($data[0]);
-                    foreach ($keyList as $value) {
-                        ?>
-                        <th scope="col"><?= $value; ?></th>
-                        <?php
-                    }
-                    ?>
-                    <!--                    <th></th>-->
-                </tr>
-                </thead>
                 <tbody>
-                <?php
 
-                echo "<tr>";
+
+                <?php
                 foreach ($data[0] as $key => $val) {
+                ?>
+
+                <tr>
+                    <th scope="col"><?= $key ?></th>
+                    <?php
                     if ($key == "StudentID") {
                         echo "<td><input type=\"text\" name=\"" . $key . "\" class=\"form-control\" value=\"" . $val . "\" readonly></td>";
                     } elseif ($key == "Gender") {
@@ -61,19 +78,19 @@ if (!empty($data[1])) {
                             <option value='Female' " . (($val == 'Female') ? 'selected' : '') . ">Female</option>
                             </select>
                         </td>";
-                        //<input type=\"text\" name=\"" . $key . "\" class=\"form-control\" value=\"" . $val . "\" >
                     } else echo "<td><input type=\"text\" name=\"" . $key . "\" class=\"form-control\" value=\"" . $val . "\"></td>";
-                }
-                //echo '<td><button type="button" class="btn btn-primary">Submit</button></td>';
-                //echo '<td><input type="submit" name="btn" class="btn btn-primary" value="Submit">&nbsp;<a href="javascript:history.go(-1)" class="btn btn-warning">Cancel</a></td>';
-                echo "</tr>";
-                ?>
-                </tbody>
+                    echo "</tr>";
+
+                    }
+                    echo "</tbody> </thead>";
+                    ?>
+
             </table>
             <br>
             <div class="col-sm-offset-2 col-xs-6">
                 <button type="submit" class="btn btn-success form-control" value="submit" name="btn">Submit</button>
             </div>
+            <br>
             <div class="text-center"><a href="javascript:history.go(-1)" class="btn btn-warning">Cancel</a></div>
         </form>
 

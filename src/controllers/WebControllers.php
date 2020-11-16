@@ -45,9 +45,15 @@ class WebControllers
         }
     }
 
-    public function addStudent($params)
+    public function addStudent()
     {
-        echo 1111;
+        if (!empty($_POST['btn'])) {
+            $addmodels = $this->studentmodels->addModel();
+            $this->view("Student", [$addmodels, [], "Added"]);
+        } else {
+            $addmodels = $this->studentmodels->getStudentColumModels();
+            $this->view("add", [$addmodels]);
+        }
     }
 
     public function errorPage($head = "")

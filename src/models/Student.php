@@ -2,6 +2,8 @@
 
 namespace MVC\models;
 
+use MVC\controllers\ToolControllers;
+
 class Student
 {
     protected $StudentID;
@@ -19,6 +21,18 @@ class Student
             $this->{$key} = $value;
         }
     }
+
+//    public function __construct($StudentID, $FirstName, $LastName, $Birthday, $Gender, $Address, $Birthplace, $FacID)
+//    {
+//        $this->StudentID = $StudentID;
+//        $this->FirstName = $FirstName;
+//        $this->LastName = $LastName;
+//        $this->Birthday = $Birthday;
+//        $this->Gender = $Gender;
+//        $this->Address = $Address;
+//        $this->Birthplace = $Birthplace;
+//        $this->FacID = $FacID;
+//    }
 
     /**
      * @return mixed

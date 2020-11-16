@@ -24,7 +24,6 @@ include_once "menu.php";
 ?>
 <br>
 <h3>Homepage</h3>
-<a href="liststudent/add">Add Student</a>
 
 <br>
 <div class="alert alert-success" align="center" role="alert">

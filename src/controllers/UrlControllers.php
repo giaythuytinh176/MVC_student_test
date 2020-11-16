@@ -30,7 +30,6 @@ class UrlControllers
             unset($parseurl[0]);
             unset($parseurl[1]);
             $this->params = array_values($parseurl);
-            //ToolControllers::PrettyShow($this->params);
         }
         $this->parseController();
     }
@@ -80,7 +79,7 @@ class UrlControllers
                     $this->webcontrollers->deleteStudent($this->params);
                     break;
                 case "add":
-                    $this->webcontrollers->addStudent($this->params);
+                    $this->webcontrollers->addStudent();
                     break;
             }
         }
@@ -94,5 +93,4 @@ class UrlControllers
             $_SERVER['SERVER_NAME'], $p, $q
         );
     }
-
 }
