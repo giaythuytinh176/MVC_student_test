@@ -32,6 +32,7 @@ if (!empty($data[1])) {
             <button type="submit" class="btn btn-danger form-control" value="submit" name="btn">Delete this student
             </button>
         </div>
+        <br>
         <div class="text-center"><a href="javascript:history.go(-1)" class="btn btn-warning">Cancel</a></div>
     </form>
 

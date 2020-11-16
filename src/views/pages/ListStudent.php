@@ -39,7 +39,7 @@ if (is_array($data[0])) {
 
             <?php
 
-            $keyList = ["StudentID", "FirstName", "LastName", "Birthday", "Gender", "Address", "Birthplace", "FacID"];
+            $keyList = $this->studentmodels->getStudentColumModels();
             foreach ($keyList as $value) {
                 ?>
                 <th scope="col"><?= $value; ?></th>
