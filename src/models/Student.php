@@ -2,8 +2,6 @@
 
 namespace MVC\models;
 
-use MVC\controllers\ToolControllers;
-
 class Student
 {
     protected $StudentID;

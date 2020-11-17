@@ -8,7 +8,7 @@ class StudentModels
 
     public function __construct()
     {
-        $this->db = DBModels::getInstance();
+        $this->db = Database::getInstance();
     }
 
     public function getListStudent()
