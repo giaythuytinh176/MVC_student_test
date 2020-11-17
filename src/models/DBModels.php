@@ -17,7 +17,7 @@ class DBModels
     {
         if (self::$instance === null) {
             try {
-                self::$instance = new PDO('mysql:host=' . Database::HOST_DB . ';dbname=' . Database::DBNAME_DB, Database::USER_DB, Database::PASSWORD_DB);
+                self::$instance = new PDO('mysql:host=' . DBModels::HOST_DB . ';dbname=' . DBModels::DBNAME_DB, DBModels::USER_DB, DBModels::PASSWORD_DB);
                 self::$instance->exec("SET NAMES 'utf8'");
             } catch (PDOException $e) {
                 echo 'Connection failed: ' . $e->getMessage();
